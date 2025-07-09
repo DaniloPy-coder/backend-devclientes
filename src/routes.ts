@@ -27,8 +27,8 @@ export async function routes(
     );
 
     fastify.delete(
-        "/customer",
-        async (request: FastifyRequest, reply: FastifyReply) => {
+        "/customer/:id",
+        async (request: FastifyRequest<{ Params: { id: string } }>, reply: FastifyReply) => {
             return new DeleteCustomerController().handle(request, reply);
         }
     );
